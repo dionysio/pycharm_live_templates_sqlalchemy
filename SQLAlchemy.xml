@@ -1,0 +1,107 @@
+<templateSet group="SQLAlchemy">
+  <template name="model" value="class $model$(Base):&#10;    __tablename__ = '$model_snake$'&#10;    &#10;    $END$" description="New model" toReformat="false" toShortenFQNames="true">
+    <variable name="model" expression="" defaultValue="Model" alwaysStopAt="true" />
+    <variable name="model_snake" expression="snakeCase(model)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="sc" value="$field$ = Column(String($max$), null=True)" description="String column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="max" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="fc" value="$field$ = Column(Float(), null=True)" description="Float column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="inc" value="$field$ = Column(Integer(), null=True)" description="Integer column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="created_at" value="created_at = Column(DateTime(), server_default=func.now())" description="created_at" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="fk" value="$field$_id = Column($parent_column_type$(), ForeignKey('$field_pascal$.id'))&#10;$field$ = relationship($field_pascal$)&#10;$END$" description="ForeignKey column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="parent_column_type" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="field_pascal" expression="capitalize(camelCase(field))" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="__str" value="def __str__(self):&#10;    return self.name&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python_Class" value="true" />
+    </context>
+  </template>
+  <template name="tc" value="$field$ = Column(Text(), null=True)" description="Text column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="bc" value="$field$ = Column(Boolean(), default=True)" description="Boolean column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="dc" value="$field$ = Column(Date(), null=True)" description="Date column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="updated_at" value="created_at = Column(DateTime(), default=func.now(), onupdate=func.now())" description="updated_at" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="binc" value="$field$ = Column(BigInteger(), null=True)" description="BigInteger column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="dtc" value="$field$ = Column(DateTime(), null=True)" description="DateTime column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="intc" value="$field$ = Column(Interval(), null=True)" description="Interval column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="nc" value="$field$ = Column(Numeric($precision$, $scale$), null=True)" description="Numeric column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="precision" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="scale" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="sinc" value="$field$ = Column(SmallInteger(), null=True)" description="SmallInteger column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="pk" value="$field$ = Column(Integer(), primary_key=True, autoincrement=True)" description="PrimaryKey column" toReformat="false" toShortenFQNames="true">
+    <variable name="field" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+</templateSet>
